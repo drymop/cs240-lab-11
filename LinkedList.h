@@ -2,6 +2,7 @@
 #define __LINKEDLIST_H__
 
 #include <list>
+#include <sstream>
 #include <vector>
 
 template <class T>
@@ -44,14 +45,16 @@ LinkedList(const LinkedList<T>& other)
 
 
 template <class T>
+int
 LinkedList<T>::
-size()
+size() const
 {
     return theList.size();
 }
 
 
 template <class T>
+void
 LinkedList<T>::
 add(T element)
 {
@@ -59,6 +62,52 @@ add(T element)
 }
 
 
+template <class T>
+T
+LinkedList<T>::
+get(int index) const
+{
+    if (index < 0 || index > size()) {
+        std::stringstream ss;
+        ss << "invalid index: " << index << ", list size: " << size();
+        std::string msg = ss.str();
+        throw std::invalid_argument(msg);
+    }
+    theList.get(index);
+}
 
+
+template <class T>
+T
+LinkedList<T>::
+remove(int index)
+{
+    if (index < 0 || index > size()) {
+        std::stringstream ss;
+        ss << "invalid index: " << index << ", list size: " << size();
+        std::string msg = ss.str();
+        throw std::invalid_argument(msg);
+    }
+    theList.erase(theList.begin() + index);
+}
+
+
+template <class T>
+std::vector<T>
+LinkedList<T>::
+toArray() const
+{
+    std::vector<T> vec;
+    return vec;
+}
+
+
+template <class T>
+LinkedList<T>&
+LinkedList<T>::
+operator+=(const T& item)
+{
+    return *this;
+}
 
 #endif
