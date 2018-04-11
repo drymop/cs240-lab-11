@@ -68,7 +68,7 @@ T
 LinkedList<T>::
 get(int index) const
 {
-    if (index < 0 || index > size()) {
+    if (index < 0 || index >= size()) {
         std::stringstream ss;
         ss << "invalid index: " << index << ", list size: " << size();
         std::string msg = ss.str();
@@ -85,7 +85,7 @@ T
 LinkedList<T>::
 remove(int index)
 {
-    if (index < 0 || index > size()) {
+    if (index < 0 || index >= size()) {
         std::stringstream ss;
         ss << "invalid index: " << index << ", list size: " << size();
         std::string msg = ss.str();
@@ -102,7 +102,7 @@ std::vector<T>
 LinkedList<T>::
 toArray() const
 {
-    std::vector<T> vec;
+    std::vector<T> vec (std::begin(theList), std::end(theList));
     return vec;
 }
 
@@ -112,6 +112,7 @@ LinkedList<T>&
 LinkedList<T>::
 operator+=(const T& item)
 {
+    theList.push_back(item);
     return *this;
 }
 
