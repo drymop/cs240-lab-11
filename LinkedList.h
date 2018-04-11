@@ -2,6 +2,7 @@
 #define __LINKEDLIST_H__
 
 #include <list>
+#include <stdexcept>
 #include <sstream>
 #include <vector>
 
