@@ -73,7 +73,9 @@ get(int index) const
         std::string msg = ss.str();
         throw std::invalid_argument(msg);
     }
-    theList.get(index);
+    typename std::list<T>::const_iterator it = theList.begin();
+    std::advance(it, index);
+    return *it;
 }
 
 
@@ -88,7 +90,9 @@ remove(int index)
         std::string msg = ss.str();
         throw std::invalid_argument(msg);
     }
-    theList.erase(theList.begin() + index);
+    typename std::list<T>::iterator it = theList.begin();
+    std::advance(it, index);
+    theList.erase(it);
 }
 
 
