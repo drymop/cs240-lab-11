@@ -37,12 +37,6 @@ int main(int argc, char const *argv[])
 	cout << "Size: " << list.size() << " [4]" << endl;
 	cout << "Get: " << list.get(0) << "," << list.get(1) << "," << list.get(2) << "," << list.get(3) << " [11,22,33,44]" << endl << endl;
 
-	//Adds the value 5 to the LinkedList then checks to see if the size and get methods call the value
-        l.add(5);
-	std::cout << "Expected Size: 1" << std::endl << "Actual: " << l.size() << std::endl;
-	std::cout << "Expected First Value: 5" << std::endl 
-		  << "Actual First Value: " << l.get(0) << endl;
-
 	// Test remove
 	cout << "Remove 0th element" << endl;
 	list.remove(0);
