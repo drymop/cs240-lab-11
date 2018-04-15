@@ -102,7 +102,7 @@ std::vector<T>
 LinkedList<T>::
 toArray() const
 {
-    std::vector<T> vec (std::begin(theList), std::end(theList));
+    std::vector<T> vec (theList.begin(), theList.end());
     return vec;
 }
 
